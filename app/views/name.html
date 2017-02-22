@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="col-md-12">
+
+     <form name="nameForm" novalidate>
+       <div class="form-group input-group-lg">
+           <label>nome</label>
+           <input
+             type="text"
+             placeholder="Aggiungi il tuo nome"
+             class="form-control"
+             name="yourName"
+             ng-model="yourName"
+             ng-minlength="3"
+             ng-maxlength="100"
+             required
+             inputisvalid='{{nameForm.$valid}}'
+             yourname
+           >
+         </div>
+     </form>
+    <a class="btn btn-default" href="#!/">indietro</a>
+    <a class="btn btn-default" ng-class="{true: '', false: 'disabled'}[nameForm.$valid]" href="#!/projects">avanti</a>
+  </div>
+</div>

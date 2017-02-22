@@ -15,19 +15,37 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap',
+    'angular-loading-bar',
+    'ngDragDrop'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/name', {
+        templateUrl: 'views/name.html',
+        controller: 'NameCtrl'
+      })
+      .when('/projects', {
+        templateUrl: 'views/projects.html',
+        controller: 'ProjectsCtrl'
+      })
+      .when('/places', {
+        templateUrl: 'views/places.html',
+        controller: 'PlacesCtrl',
+        resolve: {
+          trotto: function (apiService) {
+            return apiService.getFile('data/trotto.json')
+          }
+        }
+      })
+      .when('/publish', {
+        templateUrl: 'views/publish.html',
+        controller: 'PublishCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="col-md-6">
+    <ul>
+      <li
+        ng-repeat="project in projectsList"
+        data-drag="{{project.draggable}}"
+        ng-class="{true: '', false: 'p-disabled'}[project.draggable]"
+        ng-model = "projectsList"
+        index = "{{$index}}"
+        data-jqyoui-options="{revert: revert, helper: 'clone', cursorAt: { bottom: 0, left: 0 }}"
+        jqyoui-draggable="{index:{{$index}}, animate:true, onDrag:'dragging', onStop:'dragStop'}">
+
+        {{ project.name }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+
+    <div id="map" mapdrag>
+
+    </div>
+    <a class="btn btn-default" href="#!/projects">indietro</a>
+    <a class="btn btn-default" href="#!/publish">avanti</a>
+  </div>
+</div>

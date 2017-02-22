@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="col-md-6">
+    <ul>
+      <li ng-repeat="project in projectsList">
+        {{ project.name }}
+        <button class="btn btn-default" ng-if="project.editable" ng-click="editProject(project)">
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </button>
+        <button class="btn btn-default" ng-if="project.editable" ng-click="removeProject(project.id)">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+      </li>
+    </ul>
+    <p>
+      {{projectsList.length}} / {{maxProjects}}
+    </p>
+    <p ng-if="projectsList.length == maxProjects">
+      hai raggiunto il max di progetti! Modifica o rimuovi un progetto già esistente
+    </p>
+  </div>
+  <div class="col-md-6">
+
+     <form name="projectForm" novalidate>
+       <div class="form-group">
+           <label>nome progetto</label>
+           <input
+             type="text"
+             placeholder="Aggiungi il nome del progetto"
+             class="form-control"
+             name="projectName"
+             ng-model="projectName"
+             ng-minlength="3"
+             ng-maxlength="100"
+             ng-disabled = "projectsList.length == maxProjects && !projectId"
+             required
+             inputisvalid='{{projectForm.$valid}}'
+           >
+           <label>descrizione progetto</label>
+            <textarea
+              rows="5"
+              class="form-control"
+              ng-model="projectDesc"
+              ng-disabled = "projectsList.length == maxProjects && !projectId"
+              placeholder="Aggiungi la descrizione del progetto">
+            </textarea>
+            <button class="btn btn-default" type="submit" ng-class="{true: '', false: 'disabled'}[projectForm.$valid]" ng-click="submit()">salva</a>
+        </div>
+     </form>
+    <a class="btn btn-default" href="#!/name">indietro</a>
+    <a class="btn btn-default" href="#!/places">avanti</a>
+  </div>
+</div>

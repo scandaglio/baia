@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name baiaApp.controller:AboutCtrl
+ * @name baiaApp.controller:MainCtrl
  * @description
- * # AboutCtrl
+ * # MainCtrl
  * Controller of the baiaApp
  */
 angular.module('baiaApp')
-  .controller('AboutCtrl', function () {
+  .controller('HomeCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
