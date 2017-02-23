@@ -83,8 +83,15 @@ angular.module('baiaApp')
                 var center = turf.centroid(feature);
                 var places = formData.getPlaces();
                 var label = places['building_' + feature.properties.id].project;
-                var div = d3.select('body').append('span').datum(label).attr('class', 'marker')
-                div.text(label)
+
+                var div = d3.select('body')
+                  .append('div')
+                  .datum(label)
+                  .attr('class', 'marker')
+
+                div.append('div')
+                  .attr('class', 'text')
+                  .text(label)
 
                 var w = div.node().getBoundingClientRect().width
                 popups[label] = new mapboxgl.Marker(div.node(), {offset:[-(w/2),-10]})
@@ -150,11 +157,6 @@ angular.module('baiaApp')
           }
           formData.addPlaces('building_' + id,label)
 
-          // var div = d3.select('body')
-          //   .append('span')
-          //   .datum({label:label, id:id})
-          //   .attr('class', 'marker')
-
           var div = d3.select('body')
             .append('div')
             .datum({label:label, id:id})
@@ -181,8 +183,7 @@ angular.module('baiaApp')
         }
 
         function removeMarker(d){
-          $('li').each(function(i){
-            console.log($(this).text().trim(), d.label)
+          $('.prj-group').each(function(i){
             if($(this).text().trim() == d.label){
               $(this).removeClass('p-disabled')
             }

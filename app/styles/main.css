@@ -280,7 +280,6 @@ a.navbar-brand {
 }
 
 .marker {
-    cursor: pointer;
     color: black;
     display: inline-block;
 }
@@ -299,6 +298,10 @@ a.navbar-brand {
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
+    max-width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    float: left;
 }
 
 .marker .btn-default {
@@ -309,6 +312,9 @@ a.navbar-brand {
     font-family: 'Space Mono', monospace;
 }
 
+.drag-cursor{
+  cursor: move;
+}
 
 .p-disabled{
   pointer-events: none;

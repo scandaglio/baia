@@ -26,13 +26,13 @@
   <div class="row">
   <div class="col-md-3 progetti-bar">
     <h3>Progetti</h3>
-     <div class="prj-group"
+     <div class="prj-group drag-cursor"
       ng-repeat="project in projectsList"
        data-drag="{{project.draggable}}"
        ng-class="{true: '', false: 'p-disabled'}[project.draggable]"
        ng-model = "projectsList"
        index = "{{$index}}"
-       data-jqyoui-options="{revert: revert, helper: 'clone', cursorAt: { bottom: 0, left: 0 }, appendTo: 'body'}"
+       data-jqyoui-options="{revert: revert, helper: 'clone', cursorAt: { bottom: 15, left: 0 }, appendTo: 'body'}"
        jqyoui-draggable="{placeholder: 'keep', index:{{$index}}, animate:true, onDrag:'dragging', onStop:'dragStop'}">
         <div class="prj-single">
           {{ project.name }}
