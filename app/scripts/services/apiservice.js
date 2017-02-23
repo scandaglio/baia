@@ -9,7 +9,6 @@
  */
 angular.module('baiaApp')
   .service('apiService', function ($http, $q) {
-    var token = '23f06d46134f246b9576d8c3477f138e319095cc';
     // AngularJS will instantiate a singleton by calling "new" on this function
     return {
       getFile : function(url){
@@ -21,7 +20,7 @@ angular.module('baiaApp')
         });
         return deferred.promise;
       },
-      postGist : function(geojson){
+      postGist : function(geojson, token){
         var deferred = $q.defer();
 
         var data = {
@@ -35,18 +34,19 @@ angular.module('baiaApp')
         file['content'] = JSON.stringify(geojson);
 
         $http({
-          method: 'POST',
-          url: 'https://api.github.com/gists',
-          headers: {
-              'Authorization': 'token ' + token
-            },
-          data: data
-        })
-        .then(function(data){
+            method: 'POST',
+            url: 'https://api.github.com/gists',
+            headers: {
+                'Authorization': 'token ' + token
+              },
+            data: data
+          })
+          .then(function(data){
             deferred.resolve(data.data);
-        }, function(error) {
-          deferred.reject("An error occured while fetching file");
-        });
+          }, function(error) {
+            deferred.reject("An error occured while fetching file");
+          });
+
         return deferred.promise;
       },
       getGist: function(id){
@@ -58,6 +58,44 @@ angular.module('baiaApp')
           deferred.reject("An error occured while fetching file");
         });
         return deferred.promise;
+      },
+      listAuthorizations: function(){
+        var deferred = $q.defer();
+        $http({
+          method: 'GET',
+          url: 'https://api.github.com/authorizations',
+          headers: {'Authorization': "Basic " + btoa("scandaglio-user:0fftopic")}
+            })
+          .then(function(token){
+            console.log(token)
+            deferred.resolve(token.data)
+
+            }, function(error) {
+              console.log('ciao')
+              deferred.reject("An error occured while fetching file");
+            });
+        return deferred.promise;
+      },
+      getToken: function(note){
+        var deferred = $q.defer();
+        $http({
+          method: 'POST',
+          url: 'https://api.github.com/authorizations',
+          headers: {
+              'Authorization': "Basic " + btoa("scandaglio-user:0fftopic")
+            },
+          data: '{"scopes":["gist"],"note":"'+note+'"}'
+            })
+          .then(function(data){
+
+            deferred.resolve(data.data);
+
+            }, function(error) {
+              deferred.reject("An error occured while fetching file");
+            });
+
+        return deferred.promise;
+
       }
     }
   });

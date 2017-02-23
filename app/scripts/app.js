@@ -19,7 +19,8 @@ angular
     'ui.bootstrap',
     'angular-loading-bar',
     'ngDragDrop',
-    '720kb.socialshare'
+    '720kb.socialshare',
+    'angularRandomString'
   ])
   .config(function ($routeProvider) {
     $routeProvider

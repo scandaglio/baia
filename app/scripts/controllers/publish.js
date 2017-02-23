@@ -8,7 +8,7 @@
  * Controller of the baiaApp
  */
 angular.module('baiaApp')
-  .controller('PublishCtrl', function ($scope,formData, apiService, trotto,$location) {
+  .controller('PublishCtrl', function ($scope,formData, apiService, trotto,$location, randomString) {
     var baseurl = $location.absUrl().split('#!')[0];
     $scope.form = formData.getForm();
     $scope.savetext = 'salva';
@@ -29,11 +29,23 @@ angular.module('baiaApp')
 
     $scope.disabled = true;
     $scope.link = '';
-    $scope.saveGist = function(){
+    $scope.tands = function(){
+        apiService.getToken(randomString()).then(
+          function(data){
+            $scope.saveGist(data.token)
+          },
+          function(error){
+            console.log(error)
+            $scope.savetext = 'errore :(';
+          }
+        );
+    }
+
+    $scope.saveGist = function(token){
       $scope.savetext = 'sto salvando...';
       $scope.savetextdisabled = true;
 
-      apiService.postGist(finalData).then(
+      apiService.postGist(finalData, token).then(
         function(data){
           $scope.savetext = 'salvato';
           $scope.disabled = false;
@@ -41,6 +53,7 @@ angular.module('baiaApp')
 
         },
         function(error){
+          console.log(error)
           $scope.savetext = 'errore :(';
         }
       )
