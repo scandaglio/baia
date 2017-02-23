@@ -58,6 +58,15 @@ angular
           }
         }
       })
+      .when('/project/:id', {
+        templateUrl: 'views/project.html',
+        controller: 'ProjectCtrl',
+        resolve: {
+          geojson: function (apiService, $route) {
+            return apiService.getGist($route.current.params.id)
+          }
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -506,3 +506,13 @@ label.label-name.invisible{
 .sharing{
   margin-bottom: 50px;
 }
+
+#mapproject{
+  margin-left: -15px;
+  margin-right: -15px;
+  height: calc(100vh - 100px);
+}
+
+#publish-input{
+  text-transform: lowercase!important;
+}

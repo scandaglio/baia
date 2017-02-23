@@ -10,11 +10,9 @@
 angular.module('baiaApp')
   .controller('PublishCtrl', function ($scope,formData, apiService, trotto,$location) {
     var baseurl = $location.absUrl().split('#!')[0];
-    console.log(baseurl)
     $scope.form = formData.getForm();
     $scope.savetext = 'salva';
     $scope.savetextdisabled = false;
-    console.log(trotto, $scope.form)
     var finalData = angular.copy(trotto);
     finalData.owner = $scope.form.name?$scope.form.name:'anon';
     finalData.features.forEach(function(feature){
@@ -23,7 +21,9 @@ angular.module('baiaApp')
         var project = $scope.form.projects.filter(function(p){
           return $scope.form.places[id].project == p.name;
         })[0]
-        feature.properties.project = project;
+        feature.properties.project_name = project.name;
+        feature.properties.project_desc = project.description;
+        feature.properties.project_id = project.id;
       }
     })
 
