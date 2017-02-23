@@ -252,7 +252,7 @@ a.navbar-brand {
 }
 
 .fullheight{
-  height: calc(100vh - 50px);
+  height: calc(100vh - 100px);
   margin-top: 50px;
 }
 
@@ -419,7 +419,8 @@ label.label-name.invisible{
 }
 
 .prj-group .btn-default,
-.prj-save.btn-default {
+.prj-save.btn-default,
+.save.btn-default {
     color: black;
     background-color: white;
     border-color: black;
@@ -436,18 +437,21 @@ label.label-name.invisible{
 }
 
 .prj-group .btn-default:hover,
-.prj-save.btn-default:hover {
+.prj-save.btn-default:hover,
+.save.btn-default:hover {
   background-color: black;
   color: white;
 }
 
 .prj-group .btn:focus,
-.prj-save.btn:focus {
+.prj-save.btn:focus,
+.save.btn:focus {
   outline: none;
 }
 
 .prj-group .btn.active, .btn:active,
-.prj-save.btn.active, .prj-save.btn:active {
+.prj-save.btn.active, .prj-save.btn:active,
+.save.btn.active, .save.btn:active {
   box-shadow: none;
 }
 
@@ -470,4 +474,35 @@ label.label-name.invisible{
 
 .prj-save.disabled{
   pointer-events: none;
+}
+
+.finish{
+  font-family: 'Noto Serif', serif;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.save{
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.publish-container{
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.publish-container .row{
+  width: 100%;
+}
+
+.link-form{
+  margin: 30px 0px;
+}
+
+.sharing{
+  margin-bottom: 50px;
 }

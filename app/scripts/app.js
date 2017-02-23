@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'ui.bootstrap',
     'angular-loading-bar',
-    'ngDragDrop'
+    'ngDragDrop',
+    '720kb.socialshare'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -50,7 +51,12 @@ angular
       })
       .when('/publish', {
         templateUrl: 'views/publish.html',
-        controller: 'PublishCtrl'
+        controller: 'PublishCtrl',
+        resolve: {
+          trotto: function (apiService) {
+            return apiService.getFile('data/trotto.json')
+          }
+        }
       })
       .otherwise({
         redirectTo: '/'

@@ -25,6 +25,21 @@ angular.module('baiaApp')
         }
       }
 
+    var reset = {
+            name: '',
+            projects:[
+              {name:'agorà', description:'questa è una descrizione', editable: false, draggable:false, id:0},
+              {name:'officina', description:'questa è una descrizione yo', editable: false, draggable:false, id:1},
+              {name:'mensa', description:'questa non è una descrizione', editable: false, draggable:false, id:2},
+              {name:'cinema', description:'questa forse è una descrizione', editable: false, draggable:true, id:3}
+            ],
+            places:{
+              building_8: {project: 'agorà', editable: false},
+              building_7: {project: 'mensa', editable: false},
+              building_10: {project: 'officina', editable: false}
+            }
+          }
+
     return {
         getName: function () {
             return form.name;
@@ -78,7 +93,11 @@ angular.module('baiaApp')
         },
         getForm: function(){
             return form;
+        },
+        resetForm: function(){
+          form = angular.copy(reset);
         }
+
 
     };
   });

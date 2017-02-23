@@ -9,7 +9,7 @@
  */
 angular.module('baiaApp')
   .service('apiService', function ($http, $q) {
-    var token = 'db5d5c43ecef674b772192270b0bed0f9a54d775'
+    var token = 'c6f7e571cffb439f92c5b98242a3c905784c268b';
     // AngularJS will instantiate a singleton by calling "new" on this function
     return {
       getFile : function(url){
@@ -21,16 +21,19 @@ angular.module('baiaApp')
         });
         return deferred.promise;
       },
-      postGist : function(data){
+      postGist : function(geojson){
         var deferred = $q.defer();
+
         var data = {
           "description": "a gist for a user with token api call via ajax",
           "public": true,
-          "files": {
-            "file1.txt": {
-              "content": "String file contents via ajax"}
-            }
+          "files":{}
           }
+
+        var file = data.files[data.owner + '_' + 'trotto.json'] = {};
+
+        file['content'] = JSON.stringify(geojson);
+
         $http({
           method: 'POST',
           url: 'https://api.github.com/gists',
@@ -40,9 +43,10 @@ angular.module('baiaApp')
           data: data
         })
         .then(function(data){
-          console.log()
+          console.log(data)
             deferred.resolve(data.data);
-        }, function() {
+        }, function(error) {
+          console.log(error)
           deferred.reject("An error occured while fetching file");
         });
         return deferred.promise;
