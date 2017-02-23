@@ -149,13 +149,29 @@ angular.module('baiaApp')
             removeMarker(prevLabel.project)
           }
           formData.addPlaces('building_' + id,label)
-          var div = d3.select('body').append('span').datum({label:label, id:id}).attr('class', 'marker')
-          div.text(label)
-          div.append('button')
-            .text('remove')
+
+          // var div = d3.select('body')
+          //   .append('span')
+          //   .datum({label:label, id:id})
+          //   .attr('class', 'marker')
+
+          var div = d3.select('body')
+            .append('div')
+            .datum({label:label, id:id})
+            .attr('class', 'marker')
+
+          div.append('div')
+            .attr('class', 'text')
+            .text(label)
+
+          var close = div.append('div')
+            .attr('class', 'btn btn-default')
             .on('click', function(d) {
               removeMarker(d)
             })
+
+          close.append('span')
+            .attr('class', 'glyphicon glyphicon-remove')
 
           var w = div.node().getBoundingClientRect().width
           popups[label] = new mapboxgl.Marker(div.node(), {offset:[-(w/2),-10]})

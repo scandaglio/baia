@@ -10,7 +10,5 @@
 angular.module('baiaApp')
   .controller('NameCtrl', function ($scope, formData) {
     $scope.yourName = formData.getName();
-    $scope.submit = function(){
-      return;
-    }
+    $scope.placeholder = 'inserisci il tuo nome'
   });

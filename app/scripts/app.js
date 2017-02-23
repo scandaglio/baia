@@ -24,7 +24,12 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
-        controller: 'HomeCtrl'
+        controller: 'HomeCtrl',
+        resolve: {
+          trotto: function (apiService) {
+            return apiService.getFile('data/trotto.json')
+          }
+        }
       })
       .when('/name', {
         templateUrl: 'views/name.html',

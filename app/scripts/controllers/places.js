@@ -11,5 +11,4 @@ angular.module('baiaApp')
   .controller('PlacesCtrl', function ($scope, trotto, formData) {
     $scope.projectsList = formData.getProjects();
     $scope.trotto = trotto;
-
   });

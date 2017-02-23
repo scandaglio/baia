@@ -1,24 +1,38 @@
-<div class="container">
-  <div class="col-md-12">
+<div class="container" id="form-container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
 
-     <form name="nameForm" novalidate>
-       <div class="form-group input-group-lg">
-           <label>nome</label>
-           <input
-             type="text"
-             placeholder="Aggiungi il tuo nome"
-             class="form-control"
-             name="yourName"
-             ng-model="yourName"
-             ng-minlength="3"
-             ng-maxlength="100"
-             required
-             inputisvalid='{{nameForm.$valid}}'
-             yourname
-           >
-         </div>
-     </form>
-    <a class="btn btn-default" href="#!/">indietro</a>
-    <a class="btn btn-default" ng-class="{true: '', false: 'disabled'}[nameForm.$valid]" href="#!/projects">avanti</a>
+         <form name="nameForm" novalidate>
+           <div class="form-group input-group-lg">
+               <label class="invisible label-name" >inserisci il tuo nome<sup>*</sup></label>
+               <input
+                 type="text"
+                 placeholder="{{placeholder}}"
+                 class="form-control name-input"
+                 name="yourName"
+                 ng-model="yourName"
+                 ng-minlength="3"
+                 ng-maxlength="100"
+                 required
+                 inputisvalid='{{nameForm.$valid}}'
+                 yourname
+               >
+             </div>
+         </form>
+       </div>
+    </div>
+</div>
+
+<div id="bottom-bar">
+  <div>
+    <a class="btn btn-default btn-lg" href="#!/"><span aria-hidden="true">&larr;</span> indietro</a>
+  </div>
+  <div id="bottom-bar-text">
+    <p>
+      Ciao, inserisci il tuo nome per iniziare e clicca su "avanti"!
+    </p>
+  </div>
+  <div>
+    <a class="btn btn-default btn-lg" ng-class="{true: '', false: 'disabled'}[nameForm.$valid]" href="#!/projects">avanti <span aria-hidden="true">&rarr;</span></a>
   </div>
 </div>
