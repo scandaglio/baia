@@ -5,7 +5,7 @@ body{
   text-rendering: optimizeLegibility;
   background-color: white;
   color: black;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -356,7 +356,8 @@ label.label-name.invisible{
 
 }
 
-#bottom-bar .btn{
+#bottom-bar .btn,
+.btn-gist.btn-default{
   border-radius: 0px;
   font-family: 'Space Mono', monospace;
   font-weight: bold;
@@ -420,7 +421,8 @@ label.label-name.invisible{
 
 .prj-group .btn-default,
 .prj-save.btn-default,
-.save.btn-default {
+.save.btn-default,
+.btn-gist.btn-default {
     color: black;
     background-color: white;
     border-color: black;
@@ -438,14 +440,16 @@ label.label-name.invisible{
 
 .prj-group .btn-default:hover,
 .prj-save.btn-default:hover,
-.save.btn-default:hover {
+.save.btn-default:hover,
+.btn-gist.btn-default:hover {
   background-color: black;
   color: white;
 }
 
 .prj-group .btn:focus,
 .prj-save.btn:focus,
-.save.btn:focus {
+.save.btn:focus,
+.btn-gist.btn:focus {
   outline: none;
 }
 
@@ -515,4 +519,32 @@ label.label-name.invisible{
 
 #publish-input{
   text-transform: lowercase!important;
+}
+
+.page, .container.all{
+  margin-top: 70px;
+}
+
+.page p{
+  font-size: 18px;
+}
+
+.page a{
+  color: black;
+}
+.page a:hover{
+  color: black;
+  text-decoration: line-through;
+}
+
+.all-gist{
+  margin-top: 20px;
+}
+
+.btn-gist{
+  margin-top: 15px;
+}
+
+.no-overflow{
+  overflow: auto;
 }

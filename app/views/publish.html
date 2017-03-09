@@ -1,14 +1,14 @@
 <div class="container fullheight publish-container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h1 class="finish">finito!</h1>
+      <h1 class="finish">hai terminato il tuo progetto!</h1>
       <button class="save btn btn-default btn-lg" ng-click="tands()" ng-disabled="savetextdisabled">{{savetext}}</button>
       <form name="linkForm" class="link-form">
         <div class="form-group input-group-lg">
           <input
               id="publish-input"
               type="text"
-              placeholder="salva per ottenere il link al tuo progetto"
+              placeholder="copia link e condividi il tuo progetto"
               class="form-control name-input"
               name="yourLink"
               ng-model="link"
@@ -54,12 +54,13 @@
       </a>
 
       </div>
+      <a class="save btn btn-default btn-lg" ng-disabled="!savetextdisabled" href="#!/all">guarda gli altri progetti</a>
     </div>
   </div>
 </div>
 <div id="bottom-bar">
   <div>
-    <a class="btn btn-default btn-lg" href="#!/name"><span aria-hidden="true">&larr;</span> indietro</a>
+    <a class="btn btn-default btn-lg" href="#!/places"><span aria-hidden="true">&larr;</span> indietro</a>
   </div>
   <div id="bottom-bar-text">
     <p>

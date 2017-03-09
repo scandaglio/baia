@@ -1,7 +1,7 @@
 <div class="container-fluid fullheight">
   <div class="row">
   <div class="col-md-3 progetti-bar">
-    <h3>Progetti</h3>
+    <h3>Proposte</h3>
      <div class="prj-group" ng-repeat="project in projectsList">
         <button class="btn btn-default btn-lg" ng-if="project.editable" ng-click="editProject(project)">
           <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
@@ -18,7 +18,7 @@
     <h3>Aggiungi</h3>
      <form name="projectForm" novalidate>
        <div class="form-group input-group-lg" type="name" yourprojects>
-           <label class="invisible label-name">nome progetto<sup>*</sup></label>
+           <label class="invisible label-name">nome proposta<sup>*</sup></label>
            <input
              type="text"
              placeholder="{{nomeplaceholder}}"
@@ -33,7 +33,7 @@
            >
            </div>
            <div class="form-group" type="desc" yourprojects>
-           <label class="invisible label-name">descrizione progetto (facoltativo)</label>
+           <label class="invisible label-name">descrizione della proposta (facoltativo)</label>
             <textarea
               rows="5"
               class="form-control description"
@@ -47,7 +47,7 @@
         </div>
      </form>
      <div ng-if="projectsList.length == maxProjects" class="alert alert-warning" role="alert">
-         Hai raggiunto il numero massimo di progetti! Vai avanti o rimuovi un progetto già esistente.
+         Hai raggiunto il numero massimo di proposte! Vai avanti o rimuovi un progetto già esistente.
      </div>
 
   </div>
@@ -60,7 +60,7 @@
   </div>
   <div id="bottom-bar-text">
     <p>
-      {{name}}, aggiungi 6 progetti che vorresti realizzare oltre quelli elencati.
+      {{name}}, aggiungi 6 proposte che vorresti realizzare, oltre quelle elencate, per completare il progetto o clicca su "avanti".
     </p>
   </div>
   <div>

@@ -1,0 +1,14 @@
+<div class="container all" nooverflow>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{gistsTot}} progetti</h2>
+      </div>
+    </div>
+  <div class="row all-gist">
+    <div ng-repeat="gist in gists" class="col-md-3">
+      <a class="btn btn-default btn-lg btn-block btn-gist" href="#!/project/{{ gist.gistId}}">
+        {{ gist.owner}}
+      </a>
+    </div>
+  </div>
+</div>

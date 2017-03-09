@@ -9,8 +9,8 @@
  */
 angular.module('baiaApp')
   .controller('ProjectsCtrl', function ($scope, formData) {
-    $scope.nomeplaceholder = 'il nome del progetto';
-    $scope.descplaceholder = 'la descrizione del progetto';
+    $scope.nomeplaceholder = 'il nome della proposta';
+    $scope.descplaceholder = 'la descrizione della proposta';
     $scope.maxProjects = 12;
     $scope.name = formData.getName();
 

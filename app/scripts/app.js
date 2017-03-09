@@ -68,6 +68,26 @@ angular
           }
         }
       })
+      .when('/inoltre', {
+        templateUrl: 'views/inoltre.html',
+        controller: 'InoltreCtrl',
+        controllerAs: 'inoltre'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
+      })
+      .when('/all', {
+        templateUrl: 'views/all.html',
+        controller: 'AllCtrl',
+        controllerAs: 'all',
+        resolve: {
+          gists: function (apiService) {
+            return apiService.getGists();
+          }
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });

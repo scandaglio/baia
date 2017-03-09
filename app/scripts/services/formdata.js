@@ -13,10 +13,13 @@ angular.module('baiaApp')
     var form = {
         name: '',
         projects:[
-          {name:'agorà', description:'questa è una descrizione', editable: false, draggable:false, id:0},
-          {name:'officina', description:'questa è una descrizione yo', editable: false, draggable:false, id:1},
-          {name:'mensa', description:'questa non è una descrizione', editable: false, draggable:false, id:2},
-          {name:'cinema', description:'questa forse è una descrizione', editable: false, draggable:true, id:3}
+          {name:'agorà', editable: false, draggable:false, id:0},
+          {name:'officina', editable: false, draggable:false, id:1},
+          {name:'mensa', editable: false, draggable:false, id:2},
+          {name:'cinema', editable: false, draggable:true, id:3},
+          {name:'ludoteca', editable: false, draggable:true, id:4},
+          {name:'ufficio condivisio', editable: false, draggable:true, id:5},
+          {name:'ambulatorio popolare', editable: false, draggable:true, id:6}
         ],
         places:{
           building_8: {project: 'agorà', editable: false},

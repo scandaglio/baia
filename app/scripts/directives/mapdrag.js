@@ -152,8 +152,9 @@ angular.module('baiaApp')
         function addMarker(point, label, id){
           var places = formData.getPlaces();
           var prevLabel = places['building_' + id];
+
           if(prevLabel){
-            removeMarker(prevLabel.project)
+            removeMarker({label:prevLabel.project})
           }
           formData.addPlaces('building_' + id,label)
 
